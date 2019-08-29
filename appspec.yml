@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+
+files:
+  - source: ./app
+    destination: /var/www/html/emimall-uat/app
+
+hooks:
+  BeforeInstall:
+    - location: scripts/stop_nginx.sh
+      runas: root
+  ApplicationStart:
+    - location: scripts/changepermission.sh
+      timeout: 3600 
+  AfterInstall:
+    - location: scripts/start_nginx.sh
+      timeout: 180
+      runas: root
+  ValidateService:
+    - location: scripts/status_nginx.sh
+      timeout: 3600
+      runas: root
