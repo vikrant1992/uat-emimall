@@ -1,6 +1,6 @@
 #!/bin/bash
 # start nginx
 
-rm -rf /var/www/html/emimall-uat/app
-rm -rf /var/www/html/app/code
-rm -rf /var/www/html/app/design
+rm -rf /app/magento/emimall-uat/app
+rm -rf /app/magento/app/code
+rm -rf /app/magento/app/design

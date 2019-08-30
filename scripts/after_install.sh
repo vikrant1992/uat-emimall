@@ -1,11 +1,11 @@
 #!/bin/bash
 # starting nginx service
 
-chown emimall-prod:nginx -R /var/www/html
+chown emimall-uat:nginx -R /app/magento
 
-cp -rf /var/www/html/emimall-uat/app/code /var/www/html/app/code
-cp -rf /var/www/html/emimall-uat/app/design /var/www/html/app/design
+cp -rf /app/magento/emimall-uat/app/code /app/magento/app/code
+cp -rf /app/magento/emimall-uat/app/design /app/magento/app/design
 
-php bin/magento setup:upgrade
-php bin/magento setup:static-content:deploy -f
-php bin/magento cache:flush
+php /app/magento/bin/magento setup:upgrade
+php /app/magento/bin/magento setup:static-content:deploy -f
+php /app/magento/bin/magento cache:flush

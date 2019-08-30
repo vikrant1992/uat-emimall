@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: ./app
-    destination: /var/www/html/emimall-uat/app
+    destination: /app/magento/emimall-uat/app
 
 hooks:
   BeforeInstall:
