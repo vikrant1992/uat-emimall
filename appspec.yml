@@ -4,6 +4,8 @@ os: linux
 files:
   - source: ./app
     destination: /app/magento/emimall-uat/app
+  - source: ./customcron
+    destination: /app/magento/emimall-uat/customcron
 
 hooks:
   BeforeInstall:
