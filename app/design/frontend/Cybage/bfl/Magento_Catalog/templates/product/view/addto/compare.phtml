@@ -1,0 +1,21 @@
+<?php
+/*  Copyright (c) BFL (bajaj finserv limited), India  */
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View\Addto\Compare */
+?>
+
+<?php 
+$inCompareList = $this->helper('Cybage\CatalogProduct\Helper\Product\Compare\Data')->isInCollection($block->getProduct());
+if($inCompareList){
+    $params = $this->helper('Magento\Catalog\Helper\Product\Compare')->getPostDataRemove($block->getProduct());
+}else {
+    $params = $block->getPostDataParams();
+}
+
+?>
+<li class="p_shareicon"><a href="#" data-post='<?= $params;/* @escapeNotVerified */  ?>'
+        data-role="add-to-links"
+        class="action tocompare"><img src="<?= $block->getViewFileUrl('images/pdp/compere.svg');?>" alt="compare">
+    </a>
+</li>

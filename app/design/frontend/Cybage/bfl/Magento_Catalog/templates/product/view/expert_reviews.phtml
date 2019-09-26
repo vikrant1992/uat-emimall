@@ -1,0 +1,103 @@
+<?php
+/*  Copyright (c) BFL (bajaj finserv limited), India  */
+// @codingStandardsIgnoreFile
+
+/**
+ * Product review template
+ *
+ * @var $block Cybage\ImportReview\Block\Reviews
+ */
+?>
+<?php $expertReview = $block->getExpertReview(); ?>
+
+<div class="expertRePdp" id="experRew4">
+    <?php if(!empty($expertReview) && $expertReview['rating'] > 0) { ?>
+    <div class="p_exptitle">
+        <strong>Expert Reviews ( 1 )</strong>
+    </div>
+    <div class="reSlidemob">
+        <div class="sliderreves exprtreview">
+            <div class="slioneSec">
+                <div class="p_expreport">
+
+                    <!--exprtreview-->
+
+                    <div class="p_renewslider ">
+                        <div class="p_expreviewbord">
+                            <ul>
+                                <li><img src="<?= $this->getViewFileUrl('images/pdp/nineone.png'); ?>" alt="nineone"/></li>
+                                <li>
+                                    <a href="javascript:void(0);"><img src="<?= $this->getViewFileUrl('images/pdp/star.png'); ?>" alt="star"/></a>
+                                </li>
+                            </ul>
+                            <p class="expertRewiesTitle"><?= $expertReview['title']?></p>
+                            <p><?= $expertReview['reviewed_date']?> By <?= $expertReview['reviewed_by']?></p>
+                        </div>
+                    </div>
+                </div>
+                <?php if(isset($expertReview['pros']) || isset($expertReview['Cons'])) :?>
+                <div class="j_proConsTb">
+                    <ul class="j_tbBor">
+                        <li class="active"><a data-tab="j_pro1" href="javascript:void(0)">Pros</a></li>
+                        <li><a data-tab="j_cons1" href="javascript:void(0)">Cons</a></li>
+                    </ul>
+                    <div class="j_tabFlWidth">
+                        <?php if(isset($expertReview['pros'])) :?>
+                        <div class="jTbId j_actTb" id="j_pro1">
+                            <ul>
+                                <?php foreach($expertReview['pros'] as $pros):?>
+                                    <li><i class="fa fa-check-circle"></i> <p><?= $pros;?></p></li>
+                                <?php endforeach;?>
+                            </ul>
+                        </div>
+                        <?php   endif;  ?>
+                         <?php if(isset($expertReview['cons'])) :?>
+                        <div class="jTbId" id="j_cons1">
+                            <ul>
+                                <?php foreach($expertReview['cons'] as $cons):?>
+                                    <li><i class="fa fa-check-circle"></i> <p><?= $cons;?></p></li>
+                                <?php endforeach;?>
+                            </ul>
+                        </div>
+                        <?php   endif;  ?>
+                        
+                    </div>
+                </div>
+                <?php endif;?>
+                <?php if(!empty($expertReview['verdict'])) :?>
+                <div class="j_verText">
+                    <h3>The Final Verdict</h3>
+                    <p><?= $expertReview['verdict']?></p>
+                    <a class="j_more" href="javascript:void(0)">More</a>
+                </div>
+                <?php endif ?>
+                
+                 <?php
+                if(isset($expertReview['videos'])) :?>
+                    <div class="j_videsec">
+                    <div class="j_slidSlid">
+                        
+                <?php foreach($expertReview['videos'] as $video):?>
+                        <div class="j_partVid">
+                            <a href="javascript:void(0)" class="videoimg">
+                                <img src="<?= $video['videoImgUrl'] ?>" alt="vid"/>
+                                <div class="j_desVideo">
+                                    <h3><?= $video['caption'] ?></h3>
+                                    <p><?= $video['playback_time'] ?></p>
+                                </div>
+                            </a>
+                </div>
+                <?php endforeach;?>
+                    </div>
+                </div>
+                <?php endif; ?>
+                
+            </div>
+
+        </div>
+    </div>
+<?php } ?>
+   <?php echo $block->getChildHtml('product.info.userreviews');?>
+    
+</div>
+
