@@ -4,8 +4,8 @@
 
 sudo sh /home/ec2-user/permission.sh
 
-mv -rf /app/magento/emimall-uat/app/code /app/magento/app
-mv -rf /app/magento/emimall-uat/app/design /app/magento/app
+cp -rf /app/magento/emimall-uat/app/code /app/magento/app
+cp -rf /app/magento/emimall-uat/app/design /app/magento/app
 
 chmod -R 0777 /app/magento/generated/
 chmod -R 0777 /app/magento/pub/static/
